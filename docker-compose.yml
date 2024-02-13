@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    flask_test_1:
+        build:
+            context: ./flask_1
+            dockerfile: Dockerfile
+        ports:
+            - 8787:8787
+    flask_test:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 5000:5000
+
+            
