@@ -8,33 +8,55 @@ topics = [
     {'id':3, 'title': 'javascript', 'body': 'javascript is ...'}
 ]
 
-
-@app.route('/')
-def index():
-    liTags = ''
-    for topic in topics:
-        liTags = liTags + f'<li><a href="/read/{topic["id"]}/">{topic["title"]}</a></li>'
+def template(contents, content):
     return f'''<!doctype html>
     <html>
         <body>
             <h1><a href="/">WEB</a><h1>
             </ol>
-                {liTags}
+                {contents}
             </ol>
-            <h2>Welcome</h2>
-            Hello, Web
+            {content}
         </body>
     </html>
     '''
 
-@app.route('/hello')
-def hello():
-    return 'Hello World!'
+def getContents():
+    liTags = ''
+    for topic in topics:
+        liTags = liTags + f'<li><a href="/read/{topic["id"]}/">{topic["title"]}</a></li>'
+    return liTags
 
-@app.route('/read/<id>/')
+
+@app.route('/')
+def index():
+    return template(getContents(), '<h2>Welcome</h2>Hello, WEB')
+
+
+@app.route('/create/')
+def create():
+    content = '''
+        <form action="/create/" method="POST">
+            <p><input type="text" name="title" placeholder="title"></p>
+            <p><textarea name="body" placeholder="body"></textarea></p>
+            <p><input type="submit" value="create"></p>
+        </form>
+    '''
+    return template(getContents(), content)
+
+@app.route('/read/<int:id>/')
 def read(id):
-    return f'Read {id}'
-  
+    title = ''
+    body = ''
+    for topic in topics:
+        if id  == topic['id']:
+            title = topic['title']
+            body = topic['body']
+            break
+    return template(getContents(), f'<h2>{title}</h2>{body}')
+
+
+
   
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
