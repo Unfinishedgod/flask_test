@@ -1,4 +1,4 @@
-name: Github checkout 
+name: docker_compose
 on: [push]
 jobs:
   build:
