@@ -1,15 +1,13 @@
 name: github checkout 
-
 on: [push]
-
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # action이 실행될때 ubuntu-latest
     steps:
       -uses: actions/checkout@v2
-      -name: Run pwd
-       run: pwd
-      -name: Run ls -al
-       run: | 
-         echo add other action to build, 
-         echo test, and deploy your project.
+      - name: Run pwd
+        run: pwd
+      - name: Run ls -al
+        run: |
+          echo add other action to build
+          echo test, and deploy your project.
