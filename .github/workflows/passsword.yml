@@ -1,0 +1,10 @@
+name: 
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print Password
+    env:
+      MY_PASSWORD: ${{ secrets.PASSWORD }}
+      run: echo My password is $MY_PASSWORD
