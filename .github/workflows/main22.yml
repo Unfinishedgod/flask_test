@@ -12,3 +12,5 @@ jobs:
         run: pwd
       - name: Run ls -al
         run: ls -al
+      - name: df
+        run: df -h
