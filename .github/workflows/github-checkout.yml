@@ -8,6 +8,4 @@ jobs:
       - name: Run pwd
         run: pwd
       - name: Run ls -al
-        run: |
-          echo add other action to build
-          echo test, and deploy your project.
+        run: ls -a
