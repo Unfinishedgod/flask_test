@@ -1,4 +1,4 @@
-name: github checkout 
+name: Github checkout 
 on: [push]
 jobs:
   build:
