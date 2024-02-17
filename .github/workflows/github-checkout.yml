@@ -9,3 +9,5 @@ jobs:
         run: pwd
       - name: Run ls -al
         run: ls -a
+      - name: run docker compose
+        run: docker compose up -d
