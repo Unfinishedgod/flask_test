@@ -4,7 +4,7 @@ on: [push]
 jobs:
   build:
     # runs-on: self-hosted # action이 실행될때 
-    # runs-on: ubuntu-latest # action이 실행될때 ubuntu-latest
+    runs-on: ubuntu-latest # action이 실행될때 ubuntu-latest
     steps:
       # - uses: actions/checkout@v3
       # - run: docker compose up -d
