@@ -17,6 +17,7 @@ jobs:
             ls -al
             # docker build . --file Dockerfile --tag my-image-name:$(date +%s)            
             docker-compose down
+            docker-compose build
             docker-compose up -d
             
     
