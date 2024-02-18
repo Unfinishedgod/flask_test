@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: excuting remote ssh commands
-        uses: 'google-github-actions/ssh-compute@v1'# ssh 접속하는 오픈소스
+        uses: appleboy/ssh-action@master # ssh 접속하는 오픈소스
         with:
           host: ${{ secrets.GCP_HOST }} # 인스턴스 IP
           username: ${{ secrets.GCP_USERNAME }} # 우분투 아이디
@@ -16,10 +16,10 @@ jobs:
             cd flask_test/
             ls -al
             # docker build . --file Dockerfile --tag my-image-name:$(date +%s)            
-            git pull
-            docker-compose down
-            docker-compose build
-            docker-compose up -d
+            # git pull
+            # docker-compose down
+            # docker-compose build
+            # docker-compose up -d
 
             
 
