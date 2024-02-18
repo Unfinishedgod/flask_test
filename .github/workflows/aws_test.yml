@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: AWS Flask CI/CD
 
 on: [push]
 jobs:
@@ -14,6 +14,8 @@ jobs:
           # port: ${{ secrets.REMOTE_SSH_PORT }} # 접속포트
           script: | # 실행할 스크립트
             cd flask_test/
-            docker-compose up -d
+            ls -al
+            # docker build . --file Dockerfile --tag my-image-name:$(date +%s)            
+            # docker-compose up -d
             
     
