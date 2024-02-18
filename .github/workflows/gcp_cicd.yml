@@ -1,0 +1,25 @@
+name: GCP Flask CI/CD
+
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: excuting remote ssh commands
+        uses: appleboy/ssh-action@v0.1.6 # ssh 접속하는 오픈소스
+        with:
+          host: ${{ secrets.GCP_HOST }} # 인스턴스 IP
+          username: ${{ secrets.GCP_USERNAME }} # 우분투 아이디
+          key: ${{ secrets.GCP_SSHKEY }} # ec2 instance pem key
+          # port: ${{ secrets.REMOTE_SSH_PORT }} # 접속포트
+          script: | # 실행할 스크립트
+            cd flask_test/
+            ls -al
+            # docker build . --file Dockerfile --tag my-image-name:$(date +%s)            
+            git pull
+            docker-compose down
+            docker-compose build
+            docker-compose up -d
+
+            
+
