@@ -10,7 +10,7 @@ jobs:
         with:
           host: ${{ secrets.GCP_HOST }} # 인스턴스 IP
           username: ${{ secrets.GCP_USERNAME }} # 우분투 아이디
-          key: ${{ secrets.GCP_SSHKEY }} # ec2 instance pem key
+          key: ${{ secrets.GCP_SSHKEY_2 }} # ec2 instance pem key
           # port: ${{ secrets.REMOTE_SSH_PORT }} # 접속포트
           script: | # 실행할 스크립트
             cd flask_test/
