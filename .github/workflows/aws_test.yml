@@ -16,6 +16,7 @@ jobs:
             cd flask_test/
             ls -al
             # docker build . --file Dockerfile --tag my-image-name:$(date +%s)            
+            git pull
             docker-compose down
             docker-compose build
             docker-compose up -d
