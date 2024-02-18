@@ -3,9 +3,9 @@ from flask import Flask
 app = Flask(__name__)
 
 topics = [
-    {'id':1, 'title': 'html_2024-02-18:15:58', 'body': 'html is ...'},
+    {'id':1, 'title': 'html_2024-02-18:18:58', 'body': 'html is ...'},
     {'id':2, 'title': 'css', 'body': 'css is ...'},
-    {'id':3, 'title': 'sapt_main', 'body': 'javascript is ...'}
+    {'id':3, 'title': 'test3', 'body': 'javascript is ...'}
 ]
 
 def template(contents, content):
